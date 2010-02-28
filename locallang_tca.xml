@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+  	<type>database</type>
+		<description>Language labels for extension 'rzpopeye' forms</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+		  <label index="rzpopeye.pi_flexform.sheet_text">Text</label>
+      <label index="rzpopeye.pi_flexform.sheet_popeye">Popeye</label>	
+      <label index="rzpopeye.pi_flexform.sheet_options">Options</label>	
+      <label index="rzpopeye.pi_flexform.text">Text</label>	
+      <label index="rzpopeye.pi_flexform.images">Images</label>
+      <label index="rzpopeye.pi_flexform.captions">Captions</label>
+      <label index="rzpopeye.pi_flexform.width">Width of the images</label>
+      <label index="rzpopeye.pi_flexform.float">Float</label>
+      <label index="rzpopeye.pi_flexform.direction">Direction the Popup opens</label>
+      <label index="rzpopeye.pi_flexform.duration">Duration of fade in</label>
+      <label index="rzpopeye.pi_flexform.opacity">Opacity</label>
+      <label index="rzpopeye.pi_flexform.countpos">Count position</label>	
+      <label index="rzpopeye.pi_flexform.noscript">Info if Javascript is disabled</label>	
+      <label index="rzpopeye.pi_flexform.left">Left</label>
+      <label index="rzpopeye.pi_flexform.right">Right</label>	
+      <label index="rzpopeye.pi_flexform.none">None</label>		
+      <label index="rzpopeye.pi_flexform.ofLabel">of label</label>								
+		</languageKey>                                                    
+		                
+		<languageKey index="de" type="array">
+			<label index="rzpopeye.pi_flexform.sheet_text">Text</label>
+			<label index="rzpopeye.pi_flexform.sheet_popeye">Popeye</label>
+      <label index="rzpopeye.pi_flexform.sheet_options">Optionen</label>
+      <label index="rzpopeye.pi_flexform.text">Text</label>	
+      <label index="rzpopeye.pi_flexform.images">Bilder</label>
+      <label index="rzpopeye.pi_flexform.captions">Bildbeschreibungen</label>
+      <label index="rzpopeye.pi_flexform.width">Breite der Bilder</label>
+      <label index="rzpopeye.pi_flexform.float">Ausrichtung</label>
+      <label index="rzpopeye.pi_flexform.direction">Popup öffnet sich nach</label>
+      <label index="rzpopeye.pi_flexform.duration">Dauer des Fade In</label>
+      <label index="rzpopeye.pi_flexform.opacity">Transparenz</label>
+      <label index="rzpopeye.pi_flexform.countpos">Zähler anzeigen</label>
+      <label index="rzpopeye.pi_flexform.noscript">Info falls JavaScript deaktiviert ist</label>	
+      <label index="rzpopeye.pi_flexform.left">Links</label>
+      <label index="rzpopeye.pi_flexform.right">Rechts</label>
+      <label index="rzpopeye.pi_flexform.none">Keinen</label>
+      <label index="rzpopeye.pi_flexform.ofLabel">von Label</label>					
+		</languageKey>
+		
+		<languageKey index="fr" type="array">
+			<label index="rzpopeye.pi_flexform.sheet_text">Text</label>
+			<label index="rzpopeye.pi_flexform.sheet_popeye">Popeye</label>
+      <label index="rzpopeye.pi_flexform.sheet_options">Options</label>
+      <label index="rzpopeye.pi_flexform.text">Text</label>	
+      <label index="rzpopeye.pi_flexform.images">Images</label>
+      <label index="rzpopeye.pi_flexform.captions">Description des images</label>
+      <label index="rzpopeye.pi_flexform.width">Largeur des images</label>
+      <label index="rzpopeye.pi_flexform.float">Alignement</label>
+      <label index="rzpopeye.pi_flexform.direction">Popup s'ouvre vers</label>
+      <label index="rzpopeye.pi_flexform.duration">Dur&#233;e du fade in</label>
+      <label index="rzpopeye.pi_flexform.opacity">Transparence</label>
+      <label index="rzpopeye.pi_flexform.countpos">Afficher le compteur</label>
+      <label index="rzpopeye.pi_flexform.noscript">Info si JavaScript n'est pas actif</label>
+      <label index="rzpopeye.pi_flexform.left">Gauche</label>
+      <label index="rzpopeye.pi_flexform.right">Droite</label>
+      <label index="rzpopeye.pi_flexform.none">Aucune</label>
+      <label index="rzpopeye.pi_flexform.ofLabel">de label</label>					
+		</languageKey>
+		
+	</data>
+</T3locallang>  
+

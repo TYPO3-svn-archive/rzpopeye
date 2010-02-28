@@ -1,0 +1,28 @@
+# # Header Files [BEGIN]
+
+page.headerData.13 = COA
+
+page.headerData.13.1 = TEXT
+page.headerData.13.1.value = <script type="text/javascript" src="typo3conf/ext/rzpopeye/res/lib/jquery-1.4.1.min.js"></script>
+page.headerData.13.1.if.isFalse = {$plugin.rzpopeye.enableGlobal}
+
+page.headerData.13.2 = TEXT
+page.headerData.13.2.value (
+<script type="text/javascript" src="typo3conf/ext/rzpopeye/res/lib/jquery.popeye-1.0.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="typo3conf/ext/rzpopeye/res/css/jquery.popeye.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="typo3conf/ext/rzpopeye/res/css/jquery.popeye.style.css" media="screen" />
+)
+
+# # Header Files [END] 
+
+# # Render Image [BEGIN]
+
+ plugin.tx_rzpopeye_pi1.images {
+ 		stdWrap.wrap = <li>|</li>
+ 		imageLinkWrap = 1
+ 		imageLinkWrap {
+ 		enable = 1
+ 		}			
+}
+
+# # Render Image [END]

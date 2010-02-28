@@ -1,0 +1,4 @@
+plugin.rzpopeye {
+# cat=rzpopeye/o1; type=boolean; label=Enable jQuery globally;
+enableGlobal = 0
+}
