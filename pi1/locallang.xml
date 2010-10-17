@@ -6,12 +6,27 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
+		  <label index="previousLabel">Previous image</label>
+		  <label index="enlargeLabel">Enlarge</label>
+		  <label index="closeLabel">Close</label>
+		  <label index="nextLabel">Next image</label>
+		  <label index="imageLabel">Image</label>
 		  <label index="ofLabel">of</label>
 		</languageKey>
 		<languageKey index="de" type="array">
+		  <label index="previousLabel">Voriges Bild</label>
+		  <label index="enlargeLabel">Vergrößern</label>
+		  <label index="closeLabel">Schließen</label>
+		  <label index="nextLabel">Nächstes Bild</label>		
+		  <label index="imageLabel">Bild</label>
 		  <label index="ofLabel">von</label>
 		</languageKey>
 		<languageKey index="fr" type="array">
+		  <label index="previousLabel">Image précédente</label>
+		  <label index="enlargeLabel">Agrandir</label>
+		  <label index="closeLabel">Fermer</label>
+		  <label index="nextLabel">Image suivante</label>			
+		  <label index="imageLabel">Image</label>
 		  <label index="ofLabel">de</label>
 		</languageKey>
 	</data>

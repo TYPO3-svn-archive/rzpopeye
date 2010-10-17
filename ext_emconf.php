@@ -12,10 +12,10 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'jQuery.popeye',
-	'description' => 'jQuery.popeye - an inline lightbox alternative. See http://plugins.jquery.com/project/popeye',
+	'description' => 'jQuery.popeye - an inline lightbox alternative. See http://dev.herr-schuessler.de/jquery/popeye',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '0.2.3',
+	'version' => '1.0.1-dev',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',

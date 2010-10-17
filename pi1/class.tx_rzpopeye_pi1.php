@@ -21,139 +21,142 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
-/**
- * [CLASS/FUNCTION INDEX of SCRIPT]
- *
- * Hint: use extdeveval to insert/update function index above.
- */
 
 require_once(PATH_tslib.'class.tslib_pibase.php');
-
-
-/**
- * Plugin 'jQuery Popeye' for the 'rzpopeye' extension.
- *
- * @author	Raphael Zschorsch <rafu1987@gmail.com>
- * @package	TYPO3
- * @subpackage	tx_rzpopeye
- */
  
 class tx_rzpopeye_pi1 extends tslib_pibase {
-	var $prefixId      = 'tx_rzpopeye_pi1';		// Same as class name
-	var $scriptRelPath = 'pi1/class.tx_rzpopeye_pi1.php';	// Path to this script relative to the extension dir.
-	var $extKey        = 'rzpopeye';	// The extension key.
-	var $pi_checkCHash = true;
-	
-	/**
-	 * The main method of the PlugIn
-	 *
-	 * @param	string		$content: The PlugIn content
-	 * @param	array		$conf: The PlugIn configuration
-	 * @return	The content that is displayed on the website
-	 */   	 	
-	 	
-function images() {
-		$this->pi_loadLL();
-	    
-    // Read Flexform
-		$this->pi_initPIflexForm();
-		$images = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'images', 'popeye');
-		$caption = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'caption', 'popeye');
-		$width = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'width', 'options'); 
-		$align = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'align', 'options'); 
-		$direction = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'direction', 'options'); 
-    $duration = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'duration', 'options');
-    $opacity = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'opacity', 'options');  
-    $countpos = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'countpos', 'options');  
-    $noscript = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'noscript', 'options'); 
-    $oflabel = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'ofLabel', 'options'); 
-  
-    if($duration == '') {
-      $duration = '300';
-    }
-    else {
-      $duration = $duration;
-    } 
-    
-    if($noscript == '') {
-      $noscript = 'This element will be deleted once the gallery loads';
-    }
-    else {
-      $noscript = $noscript;
-    }
-  
-    $caption_array = explode("\n", $caption); 
-
-    // Images and captions as arrays    
-    $images_array = '';
-    $imgTSConfig = $this->conf['images.'];
-    $pics = explode(',',$images);
-    $i = 0;    
-    foreach($pics as $p) {
-    
-      $imgTSConfig['titleText'] = $caption_array[$i];
-      $imgTSConfig['altText'] = $caption_array[$i];       
-      $imgTSConfig['file'] = 'uploads/pics/'.$p;    
-      $imgTSConfig['file.'][width] = $width;
- 				
-  		$imgTSConfig['imageLinkWrap.']['typolink.']['parameter'] = 'uploads/pics/'.$p;
-      $images_array .= $this->cObj->IMAGE($imgTSConfig);
-      
-      $i++;
-
-    }
-    
-    // If ofLabel in Flexform is empty, use LL Value
-    if ($oflabel == '') {
-      $oflabel = $this->pi_getLL('ofLabel');
-    }    
-    else {
-      $oflabel = $oflabel;  
-    }
-                
-    return "<div id=\"popeye$align\" class=\"ppy\"><ul>".$images_array."</ul><div class=\"ppy-no-js\">
-    ".$noscript."</div></div> 
-
-    
-<script type=\"text/javascript\">
-    <!--//<![CDATA[
-    
-    $(document).ready(function () {
-        var options = {
-            direction: '$direction',
-            countpos: '$countpos', 
-            duration: '$duration', 
-            opacity: '$opacity', 
-            oflabel: '".$oflabel."'
-        }
-    
-        $('#popeye$align').popeye(options);
-
-    });
-    
-    //]]>-->
-</script>
-    
-    "; 
-                  
-  }
-	 
+	var $prefixId      = 'tx_rzpopeye_pi1';
+	var $scriptRelPath = 'pi1/class.tx_rzpopeye_pi1.php';
+	var $extKey        = 'rzpopeye';
+	var $pi_checkCHash = true;	
+	 		 
 	function main($content, $conf) {
 		$this->conf = $conf;
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();
 		
-		$this->pi_initPIflexForm();
-		
+		// Read Flexform
+		$this->pi_initPIflexForm();		
 		$text = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'text', 'sDEF');
+		
+		// Get images
 		$images_all = $this->images();			
     
-		$content = "".$images_all."".$this->pi_RTEcssText($text)."";		                                                      
+    // Output
+		$content = '
+      '.$images_all.'
+      '.$this->pi_RTEcssText($text).'
+      <div style="clear:both;"></div>'
+    ;		                                                      
 	
-		return "<div style=\"clear:both;\">".$content."</div>";
-	
-} 
-
+		return $content;	
+  } 
+  
+  function images() {
+  		$this->pi_loadLL();
+  	    
+      // Read Flexform
+  		$this->pi_initPIflexForm();
+  		$width = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'width', 'options'); 
+  		$direction = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'direction', 'options'); 
+      $duration = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'duration', 'options');
+      $opacity = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'opacity', 'options');   
+      $type = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'type', 'options');
+      $show_caption = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'show_caption', 'options'); 
+      $show_navigation = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'show_navigation', 'options'); 
+      
+      // Get maxWidth config
+      $maxWidth = $this->conf['maxWidth'];
+      $maxW = $this->conf['maxW'];
+      
+      // Read section      
+      $sec = $this->cObj->data['pi_flexform']['data']['popeye']['lDEF']['imageOption']['el'];
+      
+      // Get images and caption in an array
+      $images_array = array();
+      $cap_arr = array();      
+      foreach($sec as $s) {
+        $images_array[] = $s['imageOptionContainer']['el']['image']['vDEF'];
+        $cap_arr[] = $this->pi_RTEcssText($s['imageOptionContainer']['el']['caption']['vDEF']);
+      } 
+                    
+      if(isset($duration) && is_numeric($duration)) $duration = $duration;
+      else  $duration = '300';
+            
+      // Images and captions as arrays    
+      $imgTSConfig = $this->conf['images.'];
+      
+      // Counter
+      $i = 0;    
+      foreach($images_array as $p) {     
+        $imgTSConfig['titleText'] = $cap_arr[$i];
+        $imgTSConfig['altText'] = $cap_arr[$i];       
+        $imgTSConfig['file'] = 'uploads/pics/'.$p;    
+        $imgTSConfig['file.']['width'] = $width;   	
+        
+        // If maxWidth is set use {$styles.content.imgtext.maxW}
+        if($maxWidth == '1' && is_numeric($maxW)) {
+          $imgConfigBig['file'] = 'uploads/pics/'.$p;
+          $imgConfigBig['file.']['width'] = $maxW;
+          $imgConfigOut = $this->cObj->IMG_RESOURCE($imgConfigBig);
+          
+          $imgTSConfig['imageLinkWrap.']['typolink.']['parameter'] = $imgConfigOut;
+        } 
+        // Or else show the original image       
+        else {        			
+    		  $imgTSConfig['imageLinkWrap.']['typolink.']['parameter'] = 'uploads/pics/'.$p;
+    		}
+        
+        // Process the image
+        $images_array .= $this->cObj->IMAGE($imgTSConfig);        
+        
+        $i++;    
+      }
+            
+      // Get content element ID
+      $ce_id = $this->cObj->data['uid'];
+      
+      // Set popeye div            
+      $content = '
+        <div id="ppy'.$type.'" class="ppy-'.$ce_id.'">
+          <ul class="ppy-imglist">'.$images_array.'</ul>
+          <div class="ppy-outer">
+            <div class="ppy-stage">
+              <div class="ppy-nav">
+                <a class="ppy-prev" title="'.$this->pi_getLL('previousLabel').'">'.$this->pi_getLL('previousLabel').'</a>
+                <a class="ppy-switch-enlarge" title="'.$this->pi_getLL('enlargeLabel').'">'.$this->pi_getLL('enlargeLabel').'</a>
+                <a class="ppy-switch-compact" title="'.$this->pi_getLL('closeLabel').'">'.$this->pi_getLL('closeLabel').'</a>
+                <a class="ppy-next" title="'.$this->pi_getLL('nextLabel').'">'.$this->pi_getLL('nextLabel').'</a>
+              </div>
+            </div>
+          </div>
+          <div class="ppy-caption">
+            <div class="ppy-counter">
+              '.$this->pi_getLL('imageLabel').' <strong class="ppy-current"></strong> '.$this->pi_getLL('ofLabel').' <strong class="ppy-total"></strong> 
+            </div>
+            <span class="ppy-text"></span>
+          </div>
+        </div>
+      ';
+      
+      // Set JS for content element
+      $content .= "     
+        <script type=\"text/javascript\">            
+          jQuery(document).ready(function () {
+            var options = {
+                direction: '$direction',
+                opacity: '$opacity',
+                caption: '$show_caption',
+                navigation: '$show_navigation',
+                duration: $duration 
+            }             
+            jQuery('.ppy-".$ce_id."').popeye(options);         
+          });              
+        </script>      
+      ";
+      
+      return $content;                  
+  }
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/rzpopeye/pi1/class.tx_rzpopeye_pi1.php'])	{

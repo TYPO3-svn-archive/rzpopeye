@@ -1,28 +1,51 @@
-# # Header Files [BEGIN]
-
 page.headerData.13 = COA
-
 page.headerData.13.1 = TEXT
-page.headerData.13.1.value = <script type="text/javascript" src="typo3conf/ext/rzpopeye/res/lib/jquery-1.4.1.min.js"></script>
+page.headerData.13.1.value (
+
+<script type="text/javascript" src="typo3conf/ext/rzpopeye/res/lib/jquery-1.4.3.js"></script>
+)
 page.headerData.13.1.if.isFalse = {$plugin.rzpopeye.enableGlobal}
+
+[globalVar = LIT:1 = {$plugin.rzpopeye.noConflict}]
+page.headerData.13.1.value (
+
+<script type="text/javascript" src="typo3conf/ext/rzpopeye/res/lib/jquery-1-4-3-noconflict.js"></script>
+)
+[global]
 
 page.headerData.13.2 = TEXT
 page.headerData.13.2.value (
-<script type="text/javascript" src="typo3conf/ext/rzpopeye/res/lib/jquery.popeye-1.0.min.js"></script> 
-<link rel="stylesheet" type="text/css" href="typo3conf/ext/rzpopeye/res/css/jquery.popeye.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="typo3conf/ext/rzpopeye/res/css/jquery.popeye.style.css" media="screen" />
+
+<script type="text/javascript" src="typo3conf/ext/rzpopeye/res/lib/jquery.popeye-2.0.4.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="typo3conf/ext/rzpopeye/res/css/popeye/jquery.popeye.css" media="screen" />
 )
 
-# # Header Files [END] 
+page.headerData.13.3 = TEXT
+page.headerData.13.3.value (
+
+<link rel="stylesheet" type="text/css" href="typo3conf/ext/rzpopeye/res/css/popeye/jquery.popeye.style.css" media="screen" />
+)
+page.headerData.13.3.if.isFalse = {$plugin.rzpopeye.cssPath}
+
+page.headerData.13.4 = TEXT
+page.headerData.13.4.value (
+
+<link type="text/css" media="screen" rel="stylesheet" href="{$plugin.rzpopeye.cssPath}" />
+)
+page.headerData.13.4.if.isTrue = {$plugin.rzpopeye.cssPath}
 
 # # Render Image [BEGIN]
 
- plugin.tx_rzpopeye_pi1.images {
- 		stdWrap.wrap = <li>|</li>
- 		imageLinkWrap = 1
- 		imageLinkWrap {
- 		enable = 1
- 		}			
+plugin.tx_rzpopeye_pi1 {
+  maxWidth = {$plugin.rzpopeye.maxWidth}
+  maxW = {$styles.content.imgtext.maxW}
+  images {
+  	stdWrap.wrap = <li>|</li>
+  	imageLinkWrap = 1
+  	imageLinkWrap {
+  	 enable = 1
+	 }
+  }			
 }
 
 # # Render Image [END]

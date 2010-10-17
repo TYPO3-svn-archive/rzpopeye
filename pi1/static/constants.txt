@@ -1,4 +1,15 @@
 plugin.rzpopeye {
-# cat=rzpopeye/o1; type=boolean; label=Enable jQuery globally;
+  
+# cat=rzpopeye/enable/010; type=boolean; label=Enable jQuery globally;
 enableGlobal = 0
+
+# cat=rzpopeye/enable/020; type=boolean; label=jQuery noConflict mode;
+noConflict = 0
+
+# cat=rzpopeye/file/010; type=string; label=Path to CSS File: (usage like fileadmin/templates/css/styles.css - don't forget to copy the images out of the extension folder);
+cssPath = 
+
+# cat=rzpopeye/option/010; type=boolean; label=Use {$styles.content.imgtext.maxW};
+maxWidth = 0
+
 }
