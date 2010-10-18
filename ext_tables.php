@@ -4,7 +4,7 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 t3lib_div::loadTCA('tt_content');
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages,list_type';
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages';
 
 
 t3lib_extMgm::addPlugin(array(
